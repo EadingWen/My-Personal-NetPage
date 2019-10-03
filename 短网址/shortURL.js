@@ -22,9 +22,10 @@ function getShortURL()
             // 获取缩短后的网址
 			var str = ajax.responseText;
 			
-			if(str.search('{"Code":0,"ShortUrl":"') == 0)
+			if(str.search('{"Code":0') == 0)
 			{
 				str = str.replace('{"Code":0,"ShortUrl":"','');
+				str = str.replace('{"Code":0,"IsNew":true,"ShortUrl":"','');
 				str = str.replace(/".*}/,'');
 				//alert("短网址生成成功：" + str);
 				document.getElementById("Alert").innerHTML = "短网址生成成功：";
